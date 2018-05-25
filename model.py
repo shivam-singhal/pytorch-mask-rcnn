@@ -7,6 +7,9 @@ Licensed under the MIT License (see LICENSE for details)
 Written by Waleed Abdulla
 """
 
+from __future__ import print_function
+from __future__ import division
+
 import datetime
 import math
 import os
@@ -43,7 +46,7 @@ def log(text, array=None):
             array.max() if array.size else ""))
     print(text)
 
-def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█'):
+def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '='):
     """
     Call in a loop to create terminal progress bar
     @params:
@@ -58,7 +61,7 @@ def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, 
     percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
     filledLength = int(length * iteration // total)
     bar = fill * filledLength + '-' * (length - filledLength)
-    print('\r%s |%s| %s%% %s' % (prefix, bar, percent, suffix), end = '\n')
+    print('\r%s |%s| %s%% %s' % (prefix, bar, percent, suffix), end='\n')
     # Print New Line on Complete
     if iteration == total:
         print()
@@ -113,7 +116,7 @@ class SamePad2d(nn.Module):
         pad_top = math.floor(pad_along_height / 2)
         pad_right = pad_along_width - pad_left
         pad_bottom = pad_along_height - pad_top
-        return F.pad(input, (pad_left, pad_right, pad_top, pad_bottom), 'constant', 0)
+        return F.pad(input, map(int, (pad_left, pad_right, pad_top, pad_bottom)), 'constant', 0)
 
     def __repr__(self):
         return self.__class__.__name__

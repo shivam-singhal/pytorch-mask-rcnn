@@ -7,6 +7,9 @@ Licensed under the MIT License (see LICENSE for details)
 Written by Waleed Abdulla
 """
 
+from __future__ import print_function
+from __future__ import division
+
 import sys
 import os
 import math
@@ -303,7 +306,7 @@ def resize_image(image, min_dim=None, max_dim=None, padding=False):
     # Resize image and mask
     if scale != 1:
         image = scipy.misc.imresize(
-            image, (round(h * scale), round(w * scale)))
+            image, (int(round(h * scale)), int(round(w * scale))))
     # Need padding?
     if padding:
         # Get new height and width
