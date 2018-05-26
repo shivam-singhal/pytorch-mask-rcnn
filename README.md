@@ -1,6 +1,6 @@
 # pytorch-mask-rcnn
 
-Forked from yskim041/pytorch-mask-rcnn
+Forked from yskim041/pytorch-mask-rcnn.
 
 This is a Pytorch implementation of [Mask R-CNN](https://arxiv.org/abs/1703.06870) that is in large parts based on Matterport's
 [Mask_RCNN](https://github.com/matterport/Mask_RCNN). Matterport's repository is an implementation on Keras and TensorFlow.
